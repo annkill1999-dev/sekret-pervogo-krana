@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>секрет первого крана</title>
+<meta name="description" content="(не) раскрыт">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://annkill1999-dev.github.io/sekret-pervogo-krana/">
+<meta property="og:site_name" content="анна киладзе, максим дюкин">
+<meta property="og:title" content="секрет первого крана">
+<meta property="og:description" content="(не) раскрыт">
+<meta property="og:image" content="https://annkill1999-dev.github.io/sekret-pervogo-krana/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="неоновая вывеска «секрет первого крана» и кран из знаков ночью">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="author" content="анна киладзе, максим дюкин">
+<meta name="theme-color" content="#1b1c22">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1c22'/%3E%3Cg stroke='%23f1ead9' stroke-width='1.6' fill='none' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpath d='M17 2.5v6.5M17 2.5l-6 6.5M3.5 9h25.5M3.5 11h25.5'/%3E%3Cpath d='M15 11v16M19 11v16M15 12l4 3l-4 3l4 3l-4 3l4 3M11.5 28h11'/%3E%3C/g%3E%3Cpath d='M7 11.5v3.5' stroke='%23ff8a3d' stroke-width='1.4' stroke-dasharray='1.4 1.2'/%3E%3Cpath d='M4.8 15.5h4.4v4.4h-4.4zM4.8 15.5l4.4 4.4' fill='none' stroke='%23ff8a3d' stroke-width='1.4'/%3E%3C/svg%3E">
+<style>
+  html { margin: 0; height: 100%; overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+  /* ночь */
+  body { --фон: #1b1c22; --краны: #d9d6cc; --стих: #e9e4d6; --ярко: #fffdf4; --угол: #4a4b53; --тихо: #7a7a82;
+         --свет: rgba(255, 250, 230, 0.35); --свет-кранов: rgba(255, 250, 230, 0.22); --свет-ярко: rgba(255, 250, 230, 0.6);
+         --жираф: #e28a3e; --жираф-видно: .85; --полосы: rgba(255, 255, 255, 0.028);
+         --звезда: #8f8b80; --светило: #f6f1df; --мерцание: #fffdf4;
+         --неон-ядро: #fff0e2; --неон: #ff8a3d; --неон-даль: rgba(255, 120, 40, 0.5); }
+  /* день: тот же рисунок тушью на бумаге, без свечения */
+  body.день { --фон: #eeeadf; --краны: #2c2b28; --стих: #1e1d1b; --ярко: #000; --угол: #b8b3a5; --тихо: #8a8577;
+              --свет: transparent; --свет-кранов: transparent; --свет-ярко: transparent;
+              --жираф: #c2651a; --жираф-видно: .95; --полосы: rgba(0, 0, 0, 0.03); --светило: #2c2b28;
+              --звезда: transparent; --мерцание: transparent;
+              --неон-ядро: #b4521a; --неон: rgba(226, 120, 50, 0.45); --неон-даль: rgba(226, 120, 50, 0.12); }   /* звёзды днём не пропадают, их просто не видно */
+  body { margin: 0; min-height: 100%; background: var(--фон); color: var(--краны); overflow-x: hidden;
+         padding: 40px 0 40px 40px; box-sizing: border-box;
+         -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+         transition: --фон 3s, --краны 3s, --стих 3s, --ярко 3s, --угол 3s, --тихо 3s, --свет 3s, --свет-кранов 3s, --свет-ярко 3s,
+                     --жираф 3s, --жираф-видно 3s, --полосы 3s, --звезда 3s, --светило 3s, --мерцание 3s,
+                     --неон-ядро 3s, --неон 3s, --неон-даль 3s;
+         transition-timing-function: ease-in-out; }
+  body.сразу, body.сразу * { transition: none !important; }
+  html { overscroll-behavior: none; color-scheme: dark; }   /* свайп по пустому месту не сдвигает страницу; ночью полосы прокрутки тёмные */
+  html:has(body.день) { color-scheme: light; }
+  /* все цвета зарегистрированы — тогда день переходит в ночь плавно целиком, а не по частям */
+  @property --фон { syntax: '<color>'; inherits: true; initial-value: #1b1c22; }
+  @property --краны { syntax: '<color>'; inherits: true; initial-value: #d9d6cc; }
+  @property --стих { syntax: '<color>'; inherits: true; initial-value: #e9e4d6; }
+  @property --ярко { syntax: '<color>'; inherits: true; initial-value: #fffdf4; }
+  @property --угол { syntax: '<color>'; inherits: true; initial-value: #4a4b53; }
+  @property --тихо { syntax: '<color>'; inherits: true; initial-value: #7a7a82; }
+  @property --свет { syntax: '<color>'; inherits: true; initial-value: transparent; }
+  @property --свет-кранов { syntax: '<color>'; inherits: true; initial-value: transparent; }
+  @property --свет-ярко { syntax: '<color>'; inherits: true; initial-value: transparent; }
+  @property --жираф { syntax: '<color>'; inherits: true; initial-value: #e28a3e; }
+  @property --жираф-видно { syntax: '<number>'; inherits: true; initial-value: .85; }
+  @property --полосы { syntax: '<color>'; inherits: true; initial-value: transparent; }
+  @property --звезда { syntax: '<color>'; inherits: true; initial-value: transparent; }
+  @property --светило { syntax: '<color>'; inherits: true; initial-value: #f6f1df; }
+  @property --мерцание { syntax: '<color>'; inherits: true; initial-value: transparent; }
+  @property --неон-ядро { syntax: '<color>'; inherits: true; initial-value: #fff0e2; }
+  @property --неон { syntax: '<color>'; inherits: true; initial-value: #ff8a3d; }
+  @property --неон-даль { syntax: '<color>'; inherits: true; initial-value: transparent; }
+  body::after { content: ''; position: fixed; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none;
+                background: repeating-linear-gradient(to bottom, var(--полосы) 0 1px, transparent 1px 3px); }
+  main { display: flex; align-items: flex-end; }
+  pre { margin: 0; font-family: Menlo, Consolas, 'DejaVu Sans Mono', 'Noto Sans Mono', monospace; line-height: 1.3; }
+  #лист { flex: 0 0 auto; }
+  #заглавие, #стих { width: max-content; }   /* лист ровно 24 знака: по нему считается клетка под рукой; небо над ним шире */
+  #небо { color: var(--звезда); }
+  #небо u { text-decoration: none; color: var(--светило); text-shadow: 0 0 10px var(--свет-ярко); }
+  /* заглавие — неоновая вывеска: светлая трубка, вокруг ореол; под рукой мерцает, одна буква барахлит */
+  #заглавие { --неон-тень: 0 0 1px var(--неон-ядро), 0 0 4px var(--неон), 0 0 10px var(--неон), 0 0 20px var(--неон), 0 0 40px var(--неон-даль);
+              color: var(--неон-ядро); text-shadow: var(--неон-тень); cursor: default; touch-action: none; }
+  @keyframes неон {                    /* вся вывеска дважды запинается и загорается */
+    0%, 100% { opacity: 1; text-shadow: var(--неон-тень); }
+    7% { opacity: .2; text-shadow: none; }   10% { opacity: 1; text-shadow: var(--неон-тень); }
+    16% { opacity: .35; text-shadow: none; } 19% { opacity: 1; text-shadow: var(--неон-тень); }
+    52% { opacity: .55; text-shadow: none; } 55% { opacity: 1; text-shadow: var(--неон-тень); } }
+  @keyframes неон-гаснет {              /* а одна буква гаснет надолго и с треском возвращается */
+    0%, 100% { opacity: 1; text-shadow: var(--неон-тень); }
+    7% { opacity: .2; text-shadow: none; }   10% { opacity: 1; text-shadow: var(--неон-тень); }
+    16% { opacity: .1; text-shadow: none; } 66% { opacity: .7; text-shadow: none; } 69% { opacity: .1; text-shadow: none; }
+    74% { opacity: 1; text-shadow: var(--неон-тень); } 78% { opacity: .2; text-shadow: none; } 82% { opacity: 1; text-shadow: var(--неон-тень); } }
+  #стих { color: var(--стих); text-shadow: 0 0 7px var(--свет); touch-action: none; cursor: default; }
+  /* клетка листа: буква гаснет сразу, жираф проявляется медленно, буква возвращается мягко */
+  #стих span { display: inline-block; transform-origin: 50% 85%; transition: opacity .4s; }   /* буква может клониться под ветром */
+  #стих .нет { opacity: 0; transition-duration: .12s; }
+  #стих .ж { color: var(--жираф); opacity: var(--жираф-видно); text-shadow: none; transition-duration: .5s; }
+  #стих .уход { color: var(--жираф); opacity: 0; text-shadow: none; transition-duration: .3s; }
+  .для-чтения { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  #стройка { flex: 0 0 auto; text-shadow: 0 0 6px var(--свет-кранов); touch-action: none; }
+  #стройка b { font-weight: normal; color: var(--ярко); text-shadow: 0 0 8px var(--свет-ярко); }
+  #стройка ins { text-decoration: none; color: var(--ярко); text-shadow: 0 0 8px var(--свет-ярко); }
+  #стройка i { font-style: normal; color: var(--звезда); text-shadow: none; }               /* звёзды */
+  #стройка u { text-decoration: none; color: var(--светило); text-shadow: 0 0 10px var(--свет-ярко); }   /* луна или солнце */
+  #светило, #лучи { position: absolute; margin: 0; z-index: 1; color: var(--светило); text-shadow: 0 0 10px var(--свет-ярко);
+                    cursor: default; touch-action: none; transition: opacity 1.2s ease-in-out; }   /* луна и солнце сменяются через таяние */
+  #лучи { pointer-events: none; transform-origin: 50% 50%; }                              /* рука ловится по самому солнцу */
+  #светило.качается { transform-origin: 50% 0; animation: качаться 2s ease-in-out; }      /* луна — как подвешенная */
+  #лучи.кругом { animation: крутиться 3s ease-in-out; }                                   /* лучи идут кругом, солнце стоит */
+  @keyframes качаться { 0%, 100% { transform: rotate(0); } 18% { transform: rotate(-14deg); } 42% { transform: rotate(10deg); }
+                        64% { transform: rotate(-6deg); } 84% { transform: rotate(3deg); } }
+  @keyframes крутиться { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { #светило.качается, #лучи.кругом { animation: none; } }   /* луна не качается, лучи не кружат — правило ниже тех, что качают */
+  #стройка s, #небо s { text-decoration: none; color: var(--мерцание); text-shadow: 0 0 8px var(--свет-ярко); }   /* мерцающая звезда */
+  #стройка b, #стройка ins, #стройка i, #стройка u, #стройка s, #небо s { pointer-events: none; }   /* касание всегда попадает в саму стройку */
+  .угол { position: fixed; color: var(--угол); font: 14px/1 Menlo, Consolas, 'DejaVu Sans Mono', 'Noto Sans Mono', monospace; }
+  /* сорванные буквы летят своим слоем поверх страницы */
+  #хлопья { position: absolute; top: 0; left: 0; z-index: 1; pointer-events: none; font-family: Menlo, Consolas, 'DejaVu Sans Mono', 'Noto Sans Mono', monospace; line-height: 1.3;
+            color: var(--стих); text-shadow: 0 0 7px var(--свет); }
+  #хлопья span { position: absolute; top: 0; left: 0; white-space: pre; will-change: transform, opacity; }
+  /* стопкой — только на телефоне; в любом окне пошире стих и краны стоят на одной земле */
+  body.телефон { padding: 40px 0 20px 16px; }                       /* заглавие отступает от строки с погодой; место взято у зазора над кранами */
+  body.телефон main { flex-direction: column; align-items: flex-start; }
+  body.телефон #небо { display: none; }
+  html { touch-action: pan-x pan-y; }                                /* щипком страницу не увеличить */
+  body.телефон { touch-action: none; }                               /* телефон: весь экран — небо, палец не листает и не увеличивает */
+  /* на телефоне звёзды по всему экрану — своим слоем позади всего */
+  #звёзды { display: none; position: fixed; top: 0; left: 0; margin: 0; z-index: -1; pointer-events: none; color: var(--звезда); }
+  body.телефон #звёзды { display: block; }
+  #звёзды s { text-decoration: none; color: var(--мерцание); text-shadow: 0 0 8px var(--свет-ярко); }
+</style>
+</head>
+<body class="сразу">
+<pre id="звёзды" aria-hidden="true"></pre>
+<div class="угол" aria-hidden="true" style="top:16px;left:16px">┌</div>
+<div class="угол" aria-hidden="true" style="top:16px;right:16px">┐</div>
+<div class="угол" aria-hidden="true" style="bottom:16px;left:16px">└</div>
+<div class="угол" aria-hidden="true" style="bottom:16px;right:16px">┘</div>
+<div id="хлопья" aria-hidden="true"></div>
+<pre id="светило" aria-hidden="true"></pre>
+<pre id="лучи" aria-hidden="true"></pre>
+<main>
+<div id="лист">
+<pre id="небо" aria-hidden="true"></pre>
+<pre id="заглавие" role="heading" aria-level="1" aria-label="секрет первого крана">секрет первого крана</pre>
+<pre id="стих" aria-hidden="true"></pre>
+<p class="для-чтения">так собирают кран, то есть вот его собирают прямо сейчас, люди буквально заколачивают болты, чтобы кран поднять – все это поднимает другой кран. короче, кран собирает кран, и потом эти краны собирают другие краны, и так рождается семья кранов. первым краном был жираф, я уверен.</p>
+<p class="для-чтения">Под строками нарисован оранжевый жираф: если провести по буквам рукой, они стираются и он проступает, а погода — дождь, снег, ветер — сама срывает буквы. Справа краны из знаков строят друг друга. Время суток и время года — те, что сейчас у читателя.</p>
+</div>
+<pre id="стройка" aria-hidden="true"></pre>
+</main>
+<script>
+// ---------- лист: стих, под ним жираф ----------
+
+var СТИХ = [
+  'так собирают кран',
+  'то есть вот его собирают',
+  'прямо сейчас',
+  'люди буквально',
+  'заколачивают болты',
+  'чтобы кран поднять –',
+  'все это поднимает',
+  'другой кран.',
+  '',
+  'короче,',
+  'кран собирает кран',
+  'и потом эти краны',
+  'собирают другие краны',
+  '',
+  'и так рождается',
+  'семья кранов'
+];
+var ЖИРАФ_НОЧЬ = [                       // ночью спит: тот же жираф лёг на подогнутые ноги и клюёт носом
+  '',
+  '                       z',
+  '                      z',
+  '                     z',
+  '                  __',
+  '                 | -|',
+  '                /|__|',
+  '               /',
+  '              /',
+  '             /',
+  '            /',
+  ' __________/',
+  '|\\ / \\ / \\ |',
+  '|/ \\ / \\ / |',
+  '|__________|',
+  ' (_(_   (_(_'
+];
+var ЖИРАФ_ДЕНЬ = [                       // днём стоит: «первый_кран», того же роста, что стих, ноги под «семья кранов»
+  '                  __    ',
+  '                 |  |   ',
+  '                 |__|   ',
+  '                /       ',
+  '               /        ',
+  '              /         ',
+  '             /          ',
+  '            /           ',
+  ' __________/            ',
+  '|\\ / \\ / \\ |            ',
+  '|/ \\ / \\ / |            ',
+  '|__________|            ',
+  ' |  |  |  |             ',
+  ' |  |  |  |             ',
+  ' |  |  |  |             ',
+  '_|__|__|__|_            '
+];
+var R = 16, C = 24, N = R * C;          // лист шире заглавия, поэтому колонка слева — ровно 24 знака
+var ЗАЗОР = 14;                          // пустая земля между жирафом под стихом и семьёй кранов; над ней луна
+var КРУПНЕЕ = 1.4;                       // стих (и жираф под ним) крупнее стройки, земля у них общая
+var РЯДЫ_НЕБА = 22, СТОЛБЦЫ_НЕБА = C + ЗАЗОР;   // небо над стихом в знаках стройки: над стихом и над пустой землёй
+var ПРЕДЕЛ = 44;                         // знаков жирафа открыто сразу, из 74: целым он бывает только в памяти
+
+var стихEl = document.getElementById('стих');
+var текст = [], жираф = [], когда = [], срок = [], клетки = [], было = [];
+for (var r = 0; r < R; r++) {
+  for (var c = 0; c < C; c++) {
+    var span = document.createElement('span');
+    span.textContent = текст[r * C + c] = СТИХ[r][c] || ' ';
+    жираф[r * C + c] = ' ';                     // какой жираф под текстом, решает время суток
+    когда.push(-Infinity); срок.push(3); было.push('');
+    клетки.push(span);
+    стихEl.appendChild(span);
+  }
+  if (r < R - 1) стихEl.appendChild(document.createTextNode('\n'));
+}
+
+function уложитьЖирафа(день) {                  // днём под стихом стоит, ночью спит
+  var рис = день ? ЖИРАФ_ДЕНЬ : ЖИРАФ_НОЧЬ;
+  for (var i = 0; i < N; i++) жираф[i] = рис[Math.floor(i / C)][i % C] || ' ';
+}
+
+function вид(i, сейчас) {
+  var t = сейчас - когда[i], d = срок[i];
+  if (t < .12) return [текст[i], 'нет'];         // буква гаснет
+  if (t < d) return [жираф[i], 'ж'];             // в темноте проступает жираф — или ничего
+  if (t < d + .3) return [жираф[i], 'уход'];     // жираф уходит на такт раньше буквы
+  return [текст[i], ''];                         // буква возвращается
+}
+
+function тронуть(i, сейчас) {
+  var t = сейчас - когда[i];
+  if (t < .12) return;                                           // только что тронута
+  if (t < срок[i] + .3) {                                        // открыта — держится, пока трут
+    var была = t < срок[i];
+    когда[i] = сейчас - .12;
+    if (!была && жираф[i] !== ' ') ограничить(сейчас);           // уже закрывалась и снова открылась — тоже в счёт
+    return;
+  }
+  когда[i] = сейчас; срок[i] = 3 + Math.random() * .6;           // вернётся через 3–3,6 с
+  if (жираф[i] !== ' ') { ограничить(сейчас); увидел(i); }
+}
+
+// кран говорит «первым краном был жираф я уверен» только после того, как читатель нашёл жирафа под текстом
+var НАЙТИ = 3, увиденные = {}, сколькоУвидел = 0, найден = false;   // заметил, что там что-то есть, — и кран заговорил
+function увидел(i) {
+  if (найден || увиденные[i]) return;
+  увиденные[i] = true;
+  if (++сколькоУвидел >= НАЙТИ) { найден = true; ждать = 0; }
+}
+
+function ограничить(сейчас) {                    // всего жирафа сразу не видно никогда
+  var о = [];
+  for (var j = 0; j < N; j++) if (жираф[j] !== ' ' && сейчас - когда[j] < срок[j]) о.push(j);
+  о.sort(function (a, b) { return когда[a] - когда[b]; });
+  for (var k = 0; k < о.length - ПРЕДЕЛ; k++) когда[о[k]] = сейчас - срок[о[k]] - 1e-3;   // старые гаснут первыми
+}
+
+function штамп(p, палец, сейчас) {               // мышь стирает 3 знака в строке, палец — 5 знаков на 2 строки
+  var r0 = Math.floor(палец ? p.r - .5 : p.r), x0 = Math.floor(p.c), ш = палец ? 2 : 1;
+  for (var r = r0; r <= r0 + (палец ? 1 : 0); r++)
+    for (var x = x0 - ш; x <= x0 + ш; x++)
+      if (r >= 0 && r < R && x >= 0 && x < C) тронуть(r * C + x, сейчас);
+}
+
+function ткань(сейчас) {                         // innerHTML не трогаем, иначе переходы не сработают
+  for (var i = 0; i < N; i++) {
+    var в = вид(i, сейчас), к = в[0] + в[1];
+    if (к !== было[i]) { было[i] = к; клетки[i].textContent = в[0]; клетки[i].className = в[1]; }
+  }
+}
+
+var след = null;
+function точка(e) {                              // клетка по координатам: на касании WebKit держит палец за первым элементом
+  var к = стихEl.getBoundingClientRect();
+  return { r: (e.clientY - к.top) / (к.height / R), c: (e.clientX - к.left) / (к.width / C) };
+}
+стихEl.addEventListener('pointermove', function (e) {   // мышь — без нажатия, палец — ведя по стеклу
+  if (!e.isPrimary) return;                              // второй палец не стирает
+  var сейчас = performance.now() / 1000, палец = e.pointerType !== 'mouse';
+  var все = e.getCoalescedEvents ? e.getCoalescedEvents() : [];
+  (все.length ? все : [e]).forEach(function (ev) {
+    var p = точка(ev), a = след || p;
+    var n = Math.max(1, Math.ceil(2 * Math.max(Math.abs(p.r - a.r), Math.abs(p.c - a.c))));
+    for (var s = 1; s <= n; s++)                         // штамп через полклетки: быстрый палец не перескакивает буквы
+      штамп({ r: a.r + (p.r - a.r) * s / n, c: a.c + (p.c - a.c) * s / n }, палец, сейчас);
+    след = p;
+  });
+});
+['pointerdown', 'pointerup', 'pointercancel', 'pointerleave'].forEach(function (т) {
+  стихEl.addEventListener(т, function () { след = null; });
+});
+стихEl.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+
+// ---------- площадка ----------
+
+var РЯДЫ = 40, ЗЕМЛЯ = РЯДЫ - 1, СТОЛБЦЫ = 60;
+var ПОТОЛОК = 7;                         // дорос до неба — уходит
+var X0 = 0, ШАГ = 30, СЕКЦИЯ = ['|\\|/|', '|-|-|', '|/|\\|', '|-|-|'];
+
+// на стреле старшего бежит «первым краном был жираф я уверен»; уезжая, он передаёт строку выросшему
+var СТРОКА = 'первым краном был жираф я уверен';
+var ОКНО = 27;
+var речь = null;                         // { к, s }: на чьей стреле строка и сколько знаков прошло
+var ждать = 0;                           // знаков до следующего раза
+
+var краны = [
+  { n: 2, крюк: false },                 // младший, строится
+  { n: ПОТОЛОК, крюк: true }             // старший, с секцией на крюке
+];
+var полёт = null;                        // { rows, r0, c0, r1, c1, t, длина, верёвка }
+var строит = null;                       // индекс крана, который сейчас строит
+var переезд = null;                      // { t }: вся семья сдвигается вправо на шаг
+var ПЕРЕЕЗД = 2.4;
+var наведено = null;
+var шагов = 0, последний = 1;            // телефон: каждое касание крана — один шаг стройки (секция или переезд), до трёх вперёд
+
+function стрела(к) { return ЗЕМЛЯ - 4 - 4 * к.n; }
+function мачта(к) { return к.x + 15; }
+
+function расставить() {
+  var p = 0;
+  if (переезд) { p = Math.max(0, Math.min(1, переезд.t / ПЕРЕЕЗД)); p = p * p * (3 - 2 * p); }
+  краны.forEach(function (к, i) { к.x = X0 + ШАГ * i + Math.round(ШАГ * p); });
+}
+
+function родить() {
+  краны[0].крюк = true;                  // вырос — теперь сам строит
+  краны[0].n = ПОТОЛОК;
+  краны.unshift({ n: 1, крюк: false });
+  краны = краны.filter(function (к, i) { return X0 + ШАГ * i + 1 < СТОЛБЦЫ; });   // ушедшие за край
+}
+
+function говорить(dt) {
+  var шаг = БЕГ * dt;
+  if (речь && (речь.s += шаг) >= ОКНО + СТРОКА.length) речь = null;   // строка сошла с балки
+  if (!найден || (ждать -= шаг) > 0 || речь || !краны[1]) return;   // пока жирафа не нашли, краны молчат
+  речь = { к: переезд ? краны[0] : краны[1], s: 0 };   // пока семья едет, говорит выросший, уезжающий молчит
+  ждать = СТРОКА.length + ОКНО + 10;
+}
+
+// ---------- кто кого строит ----------
+
+function запустить(rows, r0, c0, верёвка) {
+  var к = краны[0];
+  полёт = { rows: rows, r0: r0, c0: c0, r1: стрела(к) + 2, c1: мачта(к) - 2,
+            t: 0, длина: 1.1, верёвка: верёвка };
+}
+
+function начать(кто) {
+  if (полёт || строит !== null || переезд) return;
+  var б = кто === 0 ? 1 : кто;           // недостроенный сам себя не строит — за него берётся старший
+  var к = краны[б];
+  if (!к) return;
+  строит = б;
+  к.крюк = false;
+  запустить(СЕКЦИЯ, стрела(к) + 4, мачта(к) - 10, { r: стрела(к) + 2, c: мачта(к) - 8 });
+}
+
+// ---------- рисунок ----------
+
+var g, m;
+function put(r, c, ch, вид) {
+  if (r >= 0 && r < РЯДЫ && c >= 0 && c < СТОЛБЦЫ) { g[r][c] = ch; m[r][c] = вид || ''; }
+}
+function слой(rows, r0, c0, вид) {
+  for (var i = 0; i < rows.length; i++)
+    for (var j = 0; j < rows[i].length; j++)
+      if (rows[i][j] !== ' ') put(r0 + i, c0 + j, rows[i][j], вид);
+}
+function пунктир(r0, c0, r1, c1, вид) {
+  var шаги = Math.max(Math.abs(r1 - r0), Math.abs(c1 - c0), 1);
+  for (var s = 0; s <= шаги; s++) {
+    var r = Math.round(r0 + (r1 - r0) * s / шаги), c = Math.round(c0 + (c1 - c0) * s / шаги);
+    if (r >= 0 && r < РЯДЫ && c >= 0 && c < СТОЛБЦЫ && g[r][c] === ' ') put(r, c, '.', вид);
+  }
+}
+
+function нарисоватьКран(к) {
+  var C = мачта(к), J = стрела(к);
+  for (var a = 0; a < 6; a++) { put(J - 6 + a, C, '|'); put(J - 6 + a, C - 1 - a, '/'); }
+  for (var c = C - 13; c <= C + 13; c++) { put(J, c, '_'); put(J + 1, c, '_'); }
+  put(J + 1, C - 14, '|'); put(J + 1, C + 14, '|');
+  if (речь && речь.к === к) {                            // бегущая строка на нижней балке
+    var s = Math.floor(речь.s);
+    for (var c2 = 0; c2 < ОКНО; c2++) {
+      var k = s - ОКНО + c2;
+      if (k >= 0 && k < СТРОКА.length) put(J + 1, C - 13 + c2, СТРОКА[k], 'ins');
+    }
+  }
+  put(J + 2, C, '|'); put(J + 3, C, '|');
+  for (var s2 = 0; s2 < к.n; s2++) слой(СЕКЦИЯ, J + 4 + 4 * s2, C - 2, '');
+  for (var c3 = C - 5; c3 <= C + 5; c3++) put(ЗЕМЛЯ, c3, '_');
+  put(ЗЕМЛЯ, C - 6, '|'); put(ЗЕМЛЯ, C + 6, '|');
+  if (к.крюк) {
+    put(J + 2, C - 8, '.'); put(J + 3, C - 8, '.');
+    слой(СЕКЦИЯ, J + 4, C - 10, '');
+  }
+}
+
+// ---------- небо: ночью звёзды и луна, днём солнце; краны проходят перед ними ----------
+
+var ЛУНА = [
+  '  .--.',
+  ' /  /',
+  '|  |',
+  ' \\  \\',
+  "  '--'"
+];
+var СОЛНЦЕ = [
+  '   \\   |   /',
+  '    .-----.',
+  '--  |     |  --',
+  "    '-----'",
+  '   /   |   \\'
+];
+var ПЛОТНОСТЬ = .012;                    // немного: около одной звезды на восемьдесят клеток
+var звёзды = [], лежа = true, вНебе = true;      // вНебе: светило над стихом (ноутбук), иначе в углу полосы кранов
+
+function звезда(r, c) {                  // одно и то же небо при любом размере окна
+  var h = Math.imul(r + 101, 374761393) ^ Math.imul(c + 2003, 668265263);
+  h = Math.imul(h ^ (h >>> 13), 1274126177);
+  return ((h ^ (h >>> 16)) >>> 0) / 4294967296 < ПЛОТНОСТЬ;
+}
+
+// луна и солнце слева: на ноутбуке — в небе над стихом, на телефоне — в левом углу полосы кранов
+function светило() {
+  if (!лежа) {                           // телефон: справа от стиха, у коротких строк — краны сюда не дорастают
+    var день = ВРЕМЯ === 'день';
+    return { рис: день ? СОЛНЦЕ : ЛУНА, r: рядСветила(), c: Math.max(0, столбцыФона - (день ? 17 : 13)), ш: день ? 15 : 6 };
+  }
+  var середина = СТОЛБЦЫ_НЕБА - Math.ceil(ЗАЗОР / 2);  // на ноутбуке — над пустой землёй между стихом и кранами
+  return ВРЕМЯ === 'день' ? { рис: СОЛНЦЕ, r: вНебе ? 1 : 0, c: вНебе ? середина - 7 : 0, ш: 15 }
+                          : { рис: ЛУНА, r: вНебе ? 2 : 1, c: вНебе ? середина - 3 : 2, ш: 6 };
+}
+
+function нарисоватьНебо() {
+  var сейчас = performance.now() / 1000;
+  звёзды.forEach(function (з) { var м = мерцание(з, сейчас); put(з.r, з.c, м || '.', м ? 's' : 'i'); });
+}                                        // светило в полосе кранов не стоит никогда: краны бы на него наплывали
+
+// звезда под рукой вспыхивает и мерцает, потом снова тихая точка
+var МЕРЦАНИЕ = ['+', '*', '+', '.', '+', '*', '+'], МЕРЦАТЬ = 1.4;
+
+function мерцание(з, сейчас) {
+  var t = сейчас - з.м;
+  return t < МЕРЦАТЬ ? МЕРЦАНИЕ[Math.floor(t / МЕРЦАТЬ * МЕРЦАНИЕ.length)] : null;
+}
+
+function тронутьЗвёзды(e, el, список, ряды, столбцы) {
+  var к = el.getBoundingClientRect(), сейчас = performance.now() / 1000;
+  var r = (e.clientY - к.top) / (к.height / ряды), c = (e.clientX - к.left) / (к.width / столбцы);
+  список.forEach(function (з) {
+    if (Math.abs(з.r + .5 - r) < 1.6 && Math.abs(з.c + .5 - c) < 2.5 && !(сейчас - з.м < МЕРЦАТЬ)) з.м = сейчас;
+  });
+}
+
+var небоЗвёзды = [], небоМерцало = false;
+function небоНадСтихом() {                       // небо над стихом тянется и над пустой землёй
+  небоЗвёзды = [];
+  for (var r = 0; лежа && r < РЯДЫ_НЕБА; r++)
+    for (var c = 0; c < СТОЛБЦЫ_НЕБА; c++) if (звезда(r, c)) небоЗвёзды.push({ r: r, c: c });
+  отрисоватьНебо();
+}
+
+function отрисоватьНебо() {
+  if (!лежа) { небоEl.textContent = ''; return; }
+  var сейчас = performance.now() / 1000, с = светило(), ш = СТОЛБЦЫ_НЕБА, клетки = [];
+  for (var r = 0; r < РЯДЫ_НЕБА; r++) { клетки.push([]); for (var c = 0; c < ш; c++) клетки[r].push(' '); }
+  небоЗвёзды.forEach(function (з) { var м = мерцание(з, сейчас); клетки[з.r][з.c] = м ? '<s>' + м + '</s>' : '.'; });
+  for (var r2 = 0; вНебе && r2 < с.рис.length; r2++)       // под светилом звёзд нет; само оно — отдельным слоем
+    for (var c2 = 0; c2 < с.ш; c2++) if (клетки[с.r + r2] && с.c + c2 < ш) клетки[с.r + r2][с.c + c2] = ' ';
+  небоEl.innerHTML = клетки.map(function (ряд) { return ряд.join(''); }).join('\n');
+}
+
+var видEl = document.getElementById('стройка'), прошлыйКадр = '';
+function нарисовать() {
+  g = []; m = [];
+  for (var r = 0; r < РЯДЫ; r++) { g.push([]); m.push([]); for (var c = 0; c < СТОЛБЦЫ; c++) { g[r].push(' '); m[r].push(''); } }
+  нарисоватьНебо();
+  краны.forEach(нарисоватьКран);
+  if (полёт) {
+    var p = полёт.t / полёт.длина, q = p * p * (3 - 2 * p);
+    var r = Math.round(полёт.r0 + (полёт.r1 - полёт.r0) * q - 2 * Math.sin(Math.PI * p));   // низко, иначе секция прошивает стрелу
+    var c = Math.round(полёт.c0 + (полёт.c1 - полёт.c0) * q);
+    var в = полёт.верёвка;
+    пунктир(в.r, в.c, r - 1, c + 2, 'b');
+    слой(полёт.rows, r, c, 'b');
+  }
+  var out = g.map(function (row, r) {
+    var t = '', открыт = '';
+    for (var c = 0; c < СТОЛБЦЫ; c++) {
+      var v = m[r][c];
+      if (v !== открыт) { if (открыт) t += '</' + открыт + '>'; if (v) t += '<' + v + '>'; открыт = v; }
+      var ch = row[c];
+      t += ch === '<' ? '&lt;' : ch === '&' ? '&amp;' : ch;
+    }
+    return открыт ? t + '</' + открыт + '>' : t;
+  }).join('\n');
+  if (out !== прошлыйКадр) видEl.innerHTML = прошлыйКадр = out;
+}
+
+// ---------- время ----------
+
+var БЕГ = 5;   // знаков в секунду
+var прошлое = null;
+
+requestAnimationFrame(function стройка(сейчас) {
+  var dt = прошлое === null ? 0 : Math.min(100, сейчас - прошлое) / 1000;
+  прошлое = сейчас;
+  говорить(dt);
+  var рука = наведено !== null || шагов > 0 ? dt : 0;   // стройка идёт только от руки: пока мышь или палец на кране, или пока доделывается шаг от касания
+
+  if (полёт) {
+    полёт.t += рука;
+    if (полёт.t >= полёт.длина) {
+      краны[0].n++;
+      краны[строит].крюк = true;
+      полёт = null;
+      строит = null;
+      if (краны[0].n >= ПОТОЛОК) {
+        переезд = { t: -0.6 };
+        if (речь && речь.к === краны[1]) речь.к = краны[0];   // старший уезжает молча, строка перетекает на выросшего
+      } else if (шагов > 0) шагов--;                          // последняя секция — шаг вместе с переездом
+    }
+  }
+  if (переезд) {
+    переезд.t += рука;
+    if (переезд.t >= ПЕРЕЕЗД + 0.5) { переезд = null; родить(); if (шагов > 0) шагов--; }
+  }
+  var кто = наведено !== null ? наведено : шагов > 0 ? Math.min(последний, краны.length - 1) : null;
+  if (кто !== null && строит === null && !полёт && !переезд) { начать(кто); if (!полёт) шагов = 0; }
+
+  расставить();
+  нарисовать();
+  ткань(performance.now() / 1000);
+  погодить(performance.now() / 1000, dt);
+  var мерцаетНебо = небоЗвёзды.some(function (з) { return мерцание(з, performance.now() / 1000); });
+  if (мерцаетНебо || небоМерцало) отрисоватьНебо();         // небо над стихом перерисовывается, только пока там мерцает
+  небоМерцало = мерцаетНебо;
+  var мерцаетФон = звёздыФона.some(function (з) { return мерцание(з, performance.now() / 1000); });
+  if (мерцаетФон || фонМерцал) отрисоватьФон();
+  фонМерцал = мерцаетФон;
+  requestAnimationFrame(стройка);
+});
+
+// ---------- рука на стройке ----------
+
+function что(e) {
+  var к = видEl.getBoundingClientRect();
+  // клетка по настоящему размеру: Safari округляет высоту строки вниз до целых пикселей
+  var c = Math.floor((e.clientX - к.left) / (к.width / СТОЛБЦЫ)), r = Math.floor((e.clientY - к.top) / (к.height / РЯДЫ));
+  if (r < 0 || r > ЗЕМЛЯ || c < 0 || c >= СТОЛБЦЫ) return null;
+  for (var i = краны.length - 1; i >= 0; i--) {
+    var кр = краны[i];
+    if (c >= кр.x && c <= кр.x + 30 && r >= стрела(кр) - 6) return i;
+  }
+  return null;
+}
+
+видEl.addEventListener('pointermove', function (e) { наведено = что(e); тронутьЗвёзды(e, видEl, звёзды, РЯДЫ, СТОЛБЦЫ); });
+видEl.addEventListener('pointerdown', function (e) {
+  наведено = что(e);
+  if (e.pointerType !== 'mouse' && наведено !== null) { последний = наведено; шагов = Math.min(3, шагов + 1); }   // стук — и секция летит
+  тронутьЗвёзды(e, видEl, звёзды, РЯДЫ, СТОЛБЦЫ);
+});
+['pointerup', 'pointercancel'].forEach(function (т) {           // палец строит, пока держишь его на кране
+  видEl.addEventListener(т, function (e) {
+    if (e.pointerType === 'mouse') return;
+    if (наведено !== null && (полёт || переезд)) шагов = Math.max(шагов, 1);   // отпустил посреди шага — он доделается
+    наведено = null;
+  });
+});
+видEl.addEventListener('pointerleave', function () { наведено = null; });
+
+// ---------- размер ----------
+
+var листEl = document.getElementById('лист'), заглавиеEl = document.getElementById('заглавие');
+function уместить() {
+  var мерка = document.createElement('pre');                      // замерить и сразу убрать, чтобы не раздвигала страницу
+  мерка.style.cssText = 'position:absolute;top:0;left:0;visibility:hidden;font-size:100px;line-height:1.3';
+  мерка.textContent = '0000000000';
+  document.body.appendChild(мерка);
+  var знак = мерка.getBoundingClientRect().width / 10 / 100;      // ширина знака на 1px кегля
+  ЗНАК = знак;
+  document.body.removeChild(мерка);
+  var W = document.documentElement.clientWidth, H = document.documentElement.clientHeight;
+  var кегль, кегльЛиста;
+  лежа = !(W < 600 && H > W);                                     // стопкой — только телефон, стоящий вертикально
+  document.body.classList.toggle('телефон', !лежа);
+  if (лежа) {                                                    // стих стоит на земле рядом с кранами, в той же сетке
+    var поШирине = (W - 40) / ((C * КРУПНЕЕ + ЗАЗОР + 60) * знак);
+    // по высоте — 40 рядов, но буквы не мельче 10px: в низком окне (телефон боком) рядов меньше
+    кегль = Math.min(15, поШирине, Math.max(10, (H - 80) / (40 * 1.3)));
+    // в высоком окне рядов больше: растёт небо, земля остаётся внизу экрана
+    РЯДЫ = Math.max(19, Math.min(60, Math.floor((H - 80) / (кегль * 1.3) + 1e-6)));
+    кегль = Math.min(кегль, (H - 80) / (РЯДЫ * 1.3));
+    кегльЛиста = Math.min(22, кегль * КРУПНЕЕ, (H - 80) / (18 * 1.3));   // заглавие, пустая строка и 16 строк стиха — в высоту окна
+    СТОЛБЦЫ_НЕБА = Math.ceil(C * кегльЛиста / кегль) + ЗАЗОР;
+    РЯДЫ_НЕБА = Math.max(0, Math.floor(РЯДЫ - 18 * кегльЛиста / кегль));   // небо над стихом добирает высоту до земли
+    СТОЛБЦЫ = Math.max(60, Math.floor((W - 40) / (кегль * знак)) - СТОЛБЦЫ_НЕБА);
+    листEl.style.margin = '0';                        // зазор занимает само небо над стихом
+    небоEl.style.minWidth = СТОЛБЦЫ_НЕБА * кегль * знак + 'px';   // и держит его, даже когда рядов неба нет
+  } else {                                                        // телефон: стих сверху, под ним полоса кранов
+    кегльЛиста = H < 680 ? 13 : H < 760 ? 15 : 16;                 // на маленьком экране мельче, чтобы краны поместились
+    var занято = 40 + 18 * кегльЛиста * 1.3 + 14 + 20;             // отступ, заглавие с пустой строкой и стих, зазор, низ
+    кегль = Math.min(12, (W - 16) / (60 * знак), (H - занято) / (19 * 1.3));   // на маленьком экране краны мельче, но целиком
+    СТОЛБЦЫ = Math.max(60, Math.floor((W - 16) / (кегль * знак)));
+    РЯДЫ = Math.max(19, Math.min(40, Math.floor((H - занято) / (кегль * 1.3))));
+    листEl.style.margin = '0 0 14px 0';
+  }
+  ЗЕМЛЯ = РЯДЫ - 1;
+  ПОТОЛОК = Math.max(2, Math.min(7, Math.floor((РЯДЫ - 11) / 4)));
+  краны.forEach(function (к, i) { к.n = i || переезд ? ПОТОЛОК : Math.min(к.n, ПОТОЛОК - 1); });
+  if (полёт && строит !== null) {                                  // висящая секция — заново от крюка к младшему
+    var кб = краны[строит], к0 = краны[0];
+    полёт.r0 = стрела(кб) + 4; полёт.c0 = мачта(кб) - 10;
+    полёт.r1 = стрела(к0) + 2; полёт.c1 = мачта(к0) - 2;
+    полёт.верёвка = { r: стрела(кб) + 2, c: мачта(кб) - 8 };
+  }
+  заглавиеEl.style.fontSize = стихEl.style.fontSize = кегльЛиста + 'px';
+  заглавиеEl.style.marginBottom = кегльЛиста * 1.3 + 'px';
+  видEl.style.fontSize = кегль + 'px';
+  // звёзды: над стройкой и, на ноутбуке, над стихом — одно небо; у земли не бывает
+  звёзды = [];
+  for (var r = 0; r < ЗЕМЛЯ - 4; r++)
+    for (var c = 0; c < СТОЛБЦЫ; c++) if (звезда(r, c + СТОЛБЦЫ_НЕБА)) звёзды.push({ r: r, c: c });
+  вНебе = лежа && РЯДЫ_НЕБА >= 7;                                 // в низком окне над стихом места нет
+  небоНадСтихом();
+  небоEl.style.fontSize = кегль + 'px';
+  прошлыйКадр = '';
+  нарисовать();
+  if (лежа) {                                                    // звезда не липнет к уголкам
+    var кв = видEl.getBoundingClientRect(), шв = кв.width / СТОЛБЦЫ, вв = кв.height / РЯДЫ;
+    var подписи = [].slice.call(document.querySelectorAll('.угол')).map(function (el) { return el.getBoundingClientRect(); });
+    звёзды = звёзды.filter(function (з) {
+      var x = кв.left + з.c * шв, y = кв.top + з.r * вв;
+      return подписи.every(function (п) { return x + шв < п.left - 4 || x > п.right + 4 || y + вв < п.top - 2 || y > п.bottom + 2; });
+    });
+  }
+  поставитьСветило();
+  звёздыПоЭкрану(кегль);
+  развеять();                                                     // всё, что летело, — заново от нового стиха
+}
+
+// ---------- день и ночь ----------
+
+var небоEl = document.getElementById('небо');
+
+// луна и солнце — отдельным слоем поверх неба: под рукой луна качается, а у солнца лучи идут кругом
+var СОЛНЦЕ_ЯДРО = [                      // само солнце стоит
+  '               ',
+  '    .-----.    ',
+  '    |     |    ',
+  "    '-----'    ",
+  '               '
+];
+var СОЛНЦЕ_ЛУЧИ = [                      // лучи — своим слоем, вращаются вокруг середины
+  '   \\   |   /   ',
+  '               ',
+  '--           --',
+  '               ',
+  '   /   |   \\   '
+];
+var светилоEl = document.getElementById('светило'), лучиEl = document.getElementById('лучи');
+function поставитьСветило() {
+  var с = светило(), день = ВРЕМЯ === 'день', кегльСветила, x, y;
+  светилоEl.textContent = (день ? СОЛНЦЕ_ЯДРО : с.рис).join('\n');
+  лучиEl.textContent = день ? СОЛНЦЕ_ЛУЧИ.join('\n') : '';
+  if (лежа && !вНебе) {                  // низкое окно: неба над стихом нет — светило в пустой земле между стихом и кранами, вровень с заглавием
+    var кс = стихEl.getBoundingClientRect(), кк = видEl.getBoundingClientRect();
+    кегльСветила = parseFloat(getComputedStyle(видEl).fontSize);
+    x = (кс.right + кк.left) / 2 - (день ? 15 : 6) * кегльСветила * ЗНАК / 2;
+    y = заглавиеEl.getBoundingClientRect().top;
+  } else {
+    var хозяин = вНебе ? небоEl : звёздыEl, к = хозяин.getBoundingClientRect();
+    var ряды = вНебе ? РЯДЫ_НЕБА : рядыФона, столбцы = вНебе ? СТОЛБЦЫ_НЕБА : столбцыФона;
+    кегльСветила = parseFloat(getComputedStyle(хозяин).fontSize);
+    x = к.left + с.c * к.width / столбцы;
+    y = к.top + с.r * к.height / ряды;
+  }
+  [светилоEl, лучиEl].forEach(function (el) {
+    el.style.fontSize = кегльСветила + 'px';
+    el.style.left = (x + scrollX) + 'px';
+    el.style.top = (y + scrollY) + 'px';
+  });
+}
+var последнийНалёт = -Infinity;
+function качнуть() {
+  if (!МЕНЬШЕ_ДВИЖЕНИЯ) {
+    if (ВРЕМЯ === 'день') лучиEl.classList.add('кругом');
+    else светилоEl.classList.add('качается');
+  }
+  var t = performance.now() / 1000;
+  if (t - последнийНалёт > 4) {          // небо приносит погоду: тронул луну или солнце — погода срывает лоскут, под ним что-то есть
+    последнийНалёт = t;
+    if (погода === 'ветер') порыв = { t: 0, длина: 1.8, сила: 1 };
+    налёт(t);
+  }
+}
+светилоEl.addEventListener('pointerenter', качнуть);
+светилоEl.addEventListener('pointerdown', качнуть);
+светилоEl.addEventListener('animationend', function () { светилоEl.classList.remove('качается'); });
+лучиEl.addEventListener('animationend', function () { лучиEl.classList.remove('кругом'); });
+небоEl.addEventListener('pointermove', function (e) { тронутьЗвёзды(e, небоEl, небоЗвёзды, РЯДЫ_НЕБА, СТОЛБЦЫ_НЕБА); });
+// «прямо сейчас»: день и ночь — по часам читателя, время года — по его календарю
+var ВОСХОД = [8.9, 8.1, 6.9, 5.7, 4.5, 3.75, 4.2, 5.2, 6.2, 7.25, 8.25, 8.9];   // по месяцам, часы; примерно как в Москве
+var ЗАКАТ = [16.4, 17.4, 18.3, 19.5, 20.6, 21.25, 21.1, 20, 18.7, 17.3, 16.3, 16];
+var СЕЗОНЫ = ['снег', 'снег', 'ветер', 'ветер', 'ветер', 'ясно', 'ясно', 'ясно', 'дождь', 'дождь', 'дождь', 'снег'];   // зима, весна, лето, осень
+function времяСуток() {
+  var д = new Date(), м = д.getMonth(), ч = д.getHours() + д.getMinutes() / 60;
+  return ч >= ВОСХОД[м] && ч < ЗАКАТ[м] ? 'день' : 'ночь';
+}
+function сезонСейчас() { return СЕЗОНЫ[new Date().getMonth()]; }
+var ВРЕМЯ = времяСуток();
+var МЕНЬШЕ_ДВИЖЕНИЯ = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);   // читатель просил движения поменьше
+
+function сменить(в) {
+  ВРЕМЯ = в;
+  document.body.classList.toggle('день', в === 'день');
+  var цвет = document.querySelector('meta[name="theme-color"]');      // панель браузера — того же времени суток
+  if (цвет) цвет.setAttribute('content', в === 'день' ? '#eeeadf' : '#1b1c22');
+  уложитьЖирафа(в === 'день');
+  ограничить(performance.now() / 1000);                          // у другого жирафа знаки в других клетках
+  светилоEl.classList.remove('качается');
+  лучиEl.classList.remove('кругом');
+  небоНадСтихом();
+  прошлыйКадр = '';
+  clearTimeout(восход);
+  if (document.body.classList.contains('сразу')) { поставитьСветило(); return; }
+  светилоEl.style.opacity = лучиEl.style.opacity = 0;             // старое светило тает
+  восход = setTimeout(function () {                              // и на его месте проступает другое
+    поставитьСветило();
+    светилоEl.style.opacity = лучиEl.style.opacity = '';
+  }, 1300);
+}
+var восход = null;                       // таймер смены луны и солнца
+сменить(ВРЕМЯ);
+requestAnimationFrame(function () { requestAnimationFrame(function () { document.body.classList.remove('сразу'); }); });
+setInterval(function () {                // страница открыта долго — закат и новый сезон случаются у читателя на глазах
+  if (времяСуток() !== ВРЕМЯ) сменить(времяСуток());
+  if (сезонСейчас() !== погода) переменить(сезонСейчас());
+}, 30000);
+
+// ---------- погода: ясно, ветер, дождь, снег ----------
+// погода трогает сам стих: буквы сдувает, они падают дождём и снегом; на месте сорванной буквы видно, что под ней.
+// тронешь луну или солнце — погода сдирает лоскут текста там, где под ним жираф: видно, что там что-то нарисовано, — дальше протереть самому
+
+var ПОГОДЫ = ['ясно', 'ветер', 'дождь', 'снег'];
+var ЖИРАФА_ПОГОДЕ = 16;                  // сама по себе погода приоткрывает жирафа заметно, но не целиком
+var ЖИРАФА_НАЛЁТУ = 24;                  // лоскут от касания неба: понятно, что там что-то нарисовано, но не что
+var погода = сезонСейчас();
+var хлопьяEl = document.getElementById('хлопья'), хлопья = [], очередь = [];
+var порыв = null, доПорыва = 1, ветер = 0, копить = 0;
+
+var сдвиги = [];                         // что уже стоит на клетке, чтобы не трогать стиль зря
+function сдвиг(i, x, угол) {             // x — в долях кегля, угол — в градусах
+  var т = x || угол ? 'translateX(' + x.toFixed(3) + 'em) rotate(' + угол.toFixed(2) + 'deg)' : '';
+  if (сдвиги[i] !== т) { сдвиги[i] = т; клетки[i].style.transform = т; }
+}
+
+function открытоЖирафа(сейчас) {
+  var n = 0;
+  for (var j = 0; j < N; j++) if (жираф[j] !== ' ' && сейчас - когда[j] < срок[j]) n++;
+  return n;
+}
+function открыта(i, сейчас) { return сейчас - когда[i] < срок[i] + .3; }
+function земля(c) {                      // куда ложится буква: в нижнюю пустую клетку столбца — на строку, а не в неё
+  if (c < 0 || c >= C) return R - 1;
+  for (var r = R - 1; r > 0 && текст[r * C + c] !== ' '; r--);
+  return r;
+}
+
+function снять(i, сейчас, жить, вид) {   // клетка открывается; буква, если была, улетает, как велит погода
+  когда[i] = сейчас; срок[i] = жить;
+  if (жираф[i] !== ' ') ограничить(сейчас);
+  if (текст[i] === ' ' || хлопья.length > 90 || МЕНЬШЕ_ДВИЖЕНИЯ) return;   // без полёта буква просто гаснет на месте
+  var к = стихEl.getBoundingClientRect(), el = document.createElement('span');
+  el.textContent = текст[i];
+  el.style.fontSize = стихEl.style.fontSize;
+  хлопьяEl.appendChild(el);
+  var х = { el: el, вид: вид, r: Math.floor(i / C), c: i % C, t: 0, vr: 0, vc: 0, угол: 0, вр: 0, тает: null,
+            ш: к.width / C, в: к.height / R, x0: к.left + scrollX, y0: к.top + scrollY, ф: Math.random() * 6.3 };
+  х.c0 = х.c; х.r0 = х.r;
+  if (вид === 'ветер') {                 // слева направо, к кранам; кувыркается и тает над пустой землёй
+    х.vc = 4 + 4 * Math.random(); х.vr = -.6 + Math.random() * .8; х.вр = (Math.random() < .5 ? -1 : 1) * (120 + 280 * Math.random());
+    х.жизнь = 1.8 + Math.random();
+  } else if (вид === 'дождь') {          // падает отвесно и быстро, вытягиваясь в каплю
+    х.vr = 1.5; х.vc = .3;
+  } else if (вид === 'снег') {           // кружит вниз и ложится на землю, потом тает
+    х.vr = .5 + .5 * Math.random(); х.размах = .5 + .6 * Math.random(); х.период = 2.4 + 1.6 * Math.random();
+  } else {                               // ясно: буква испаряется — поднимается и тает в воздухе
+    х.vr = -.35 - .25 * Math.random(); х.жизнь = 1.4 + .6 * Math.random();
+  }
+  хлопья.push(х);
+}
+
+function сыпать(сейчас) {                // одна клетка осыпается сама по себе — чаще там, где под ней жираф
+  var жирафьи = [];
+  for (var j = 0; j < N; j++) if (жираф[j] !== ' ') жирафьи.push(j);
+  for (var k = 0; k < 16; k++) {
+    var i = Math.random() < .6 ? жирафьи[Math.floor(Math.random() * жирафьи.length)] : Math.floor(Math.random() * N);
+    if (открыта(i, сейчас) || (текст[i] === ' ' && жираф[i] === ' ')) continue;
+    if (жираф[i] !== ' ' && открытоЖирафа(сейчас) >= ЖИРАФА_ПОГОДЕ) continue;
+    var жить = { ясно: 3, ветер: 3.5, дождь: 2.5, снег: 4 }[погода] + Math.random() * 1.5;
+    снять(i, сейчас, жираф[i] !== ' ' ? жить + 2 : жить, погода);   // открытый жираф держится подольше
+    return;
+  }
+}
+
+function налёт(сейчас) {                 // по клику: лоскут текста над жирафом уходит, и под ним видны его линии
+  function даль(i, j) {                  // < 1 — внутри лоскута: шире, чем выше, как мазок
+    var dr = (Math.floor(i / C) - Math.floor(j / C)) / 3.2, dc = (i % C - j % C) / 6.5;
+    return dr * dr + dc * dc;
+  }
+  var годные = [], лучший = -1, лучшийN = -1;
+  for (var j = 0; j < N; j++) {          // середина — там, где жирафа под текстом погуще, но каждый раз другая
+    if (жираф[j] === ' ') continue;
+    var n = 0;
+    for (var d = 0; d < N; d++) if (жираф[d] !== ' ' && даль(d, j) < 1) n++;
+    if (n >= 12) годные.push(j);
+    if (n > лучшийN) { лучшийN = n; лучший = j; }
+  }
+  var центр = годные.length ? годные[Math.floor(Math.random() * годные.length)] : лучший;
+  if (центр < 0) return;
+  var лоскут = [];
+  for (var i = 0; i < N; i++) {
+    var dd = даль(i, центр);
+    if (dd > .75 + .5 * Math.random()) continue;                     // рваный край
+    if (открыта(i, сейчас) || (текст[i] === ' ' && жираф[i] === ' ')) continue;
+    лоскут.push({ i: i, d: dd });
+  }
+  лоскут.sort(function (a, b) { return a.d - b.d; });
+  var ж = 0, cr = Math.floor(центр / C), cc = центр % C;
+  лоскут.forEach(function (к) {
+    if (жираф[к.i] !== ' ' && ++ж > ЖИРАФА_НАЛЁТУ) return;          // целиком жирафа не покажет и погода
+    var r = Math.floor(к.i / C), c = к.i % C, задержка;
+    if (погода === 'ветер') задержка = (c - cc + 5) * .07 + Math.random() * .12;        // слева направо, вслед за порывом
+    else if (погода === 'дождь') задержка = (r - cr + 3) * .1 + Math.random() * .3;     // ливнем сверху вниз
+    else if (погода === 'снег') задержка = Math.random() * 1.4;                          // вразброс, тихо
+    else задержка = Math.sqrt(к.d) * .7 + Math.random() * .15;                           // ясно: испаряется от середины
+    очередь.push({ i: к.i, t: сейчас + Math.max(0, задержка), вид: погода });
+  });
+}
+
+function лететь(х, dt, сейчас) {                 // false — растаяла
+  х.t += dt;
+  var прозрачность = 1, вытянуть = 1, масштаб = 1;
+  if (х.тает !== null) {                 // лежит или разбилась и тает
+    х.тает += dt;
+    прозрачность = х.была * (1 - х.тает / х.таять);
+    if (прозрачность <= 0) return false;
+  } else if (х.вид === 'ветер') {
+    х.vc += ветер * 9 * dt - .4 * х.vc * dt;                          // порыв подхватывает, воздух тормозит
+    х.vr += Math.sin(х.t * 5 + х.ф) * 2.5 * dt;                        // крутит
+    х.c += х.vc * dt; х.r += х.vr * dt; х.угол += х.вр * dt;
+    прозрачность = 1 - х.t / х.жизнь;
+    if (прозрачность <= 0) return false;
+  } else if (х.вид === 'снег') {
+    х.r += х.vr * dt;
+    х.c = х.c0 + х.размах * (Math.sin(2 * Math.PI * х.t / х.период + х.ф) - Math.sin(х.ф));
+    х.угол = 25 * Math.sin(2 * Math.PI * х.t / х.период * .7 + х.ф);
+    var дно = земля(Math.round(х.c));
+    if (х.r >= дно) {
+      х.r = Math.max(х.r0, дно); х.тает = 0; х.таять = 3 + 2 * Math.random(); х.была = 1;
+      var под = Math.round(х.r) * C + Math.round(х.c);   // легла на букву (нижние строки): лежит, пока буква не вернулась
+      if (текст[под] !== ' ') х.таять = Math.max(.3, Math.min(х.таять, когда[под] + срок[под] - сейчас - .3));
+    }
+  } else if (х.вид === 'дождь') {
+    х.vr += 30 * dt; х.c += х.vc * dt; х.r += х.vr * dt;
+    вытянуть = 1 + Math.min(.7, х.vr / 25);
+    прозрачность = .95 - .35 * Math.min(1, х.t / .8);
+    var дно2 = земля(Math.round(х.c));
+    if (х.r >= дно2) { х.r = Math.max(х.r0, дно2); х.тает = 0; х.таять = .25; х.была = прозрачность; х.el.textContent = '.'; }
+  } else {                               // пар
+    х.r += х.vr * dt; х.c = х.c0 + .25 * Math.sin(х.t * 3 + х.ф);
+    var p = х.t / х.жизнь;
+    прозрачность = 1 - p; масштаб = 1 + .5 * p;
+    if (прозрачность <= 0) return false;
+    х.el.style.filter = 'blur(' + (2.5 * p).toFixed(2) + 'px)';
+  }
+  х.el.style.opacity = прозрачность.toFixed(3);
+  х.el.style.transform = 'translate(' + (х.x0 + х.c * х.ш).toFixed(1) + 'px,' + (х.y0 + х.r * х.в).toFixed(1) + 'px) rotate(' +
+                         х.угол.toFixed(1) + 'deg) scale(' + масштаб.toFixed(2) + ',' + (масштаб * вытянуть).toFixed(2) + ')';
+  return true;
+}
+
+function погодить(сейчас, dt) {
+  if (погода === 'ветер') {              // порывами: налетел, клонит буквы, рвёт несколько и стихает
+    if (!порыв && (доПорыва -= dt) <= 0) порыв = { t: 0, длина: 1.3 + Math.random(), сила: .6 + .4 * Math.random() };
+    ветер = 0;
+    if (порыв) {
+      var p = (порыв.t += dt) / порыв.длина;
+      if (p >= 1) { порыв = null; доПорыва = 2 + 3.5 * Math.random(); }
+      else ветер = Math.pow(Math.sin(Math.PI * p), 2) * порыв.сила;
+    }
+    копить += dt * 16 * ветер;
+    for (var i = 0; i < N && !МЕНЬШЕ_ДВИЖЕНИЯ; i++) if (текст[i] !== ' ' || жираф[i] !== ' ') сдвиг(i, .04 * ветер, ветер * (5 + 3 * Math.sin(сейчас * 11 + i * 2.3)));
+  } else {
+    ветер = 0;
+    копить += dt * (погода === 'дождь' ? 10 : погода === 'снег' ? 3 : 1.2);   // летом буквы понемногу испаряются
+  }
+  while (копить >= 1) { копить--; сыпать(сейчас); }
+  очередь = очередь.filter(function (о) {   // лоскут уходит не разом, а по ходу погоды
+    if (о.t > сейчас) return true;
+    if (!открыта(о.i, сейчас)) снять(о.i, сейчас, 3.2 + Math.random() * 1.2, о.вид);
+    return false;
+  });
+  хлопья = хлопья.filter(function (х) {
+    if (лететь(х, dt, сейчас)) return true;
+    хлопьяEl.removeChild(х.el);
+    return false;
+  });
+}
+
+function развеять() { хлопья.forEach(function (х) { хлопьяEl.removeChild(х.el); }); хлопья = []; }
+
+function переменить(п) {
+  погода = п;
+  for (var i = 0; i < N; i++) сдвиг(i, 0, 0);
+  порыв = null; доПорыва = .5; копить = 0;
+}
+переменить(погода);
+
+// ---------- телефон: звёзды по всему экрану, экран не приближается ----------
+// там, где нет ни стиха, ни кранов, ни подписей, — то же небо, что над кранами; под пальцем звёзды мерцают
+
+var звёздыEl = document.getElementById('звёзды'), звёздыФона = [], фонМерцал = false, ЗНАК = .6;
+var рядыФона = 0, столбцыФона = 0, кегльФона = 12;
+function рядСветила() {                  // на высоте середины стиха: там строки короче всего
+  var к = стихEl.getBoundingClientRect();
+  return Math.max(0, Math.round((к.top + 7.5 * к.height / R) / Math.floor(кегльФона * 1.3) - 2.5));
+}
+function звёздыПоЭкрану(кегль) {
+  звёздыФона = [];
+  if (лежа) { звёздыEl.textContent = ''; return; }
+  var W = document.documentElement.clientWidth, H = document.documentElement.clientHeight;
+  var ш = кегль * ЗНАК, в = Math.floor(кегль * 1.3);               // целая высота строки, как её рисует Safari
+  кегльФона = кегль;
+  звёздыEl.style.lineHeight = в + 'px';
+  столбцыФона = Math.ceil(W / ш); рядыФона = Math.ceil(H / в);
+  звёздыEl.style.fontSize = кегль + 'px';
+  отрисоватьФон();                                                    // сетка нужна, чтобы поставить по ней светило
+  поставитьСветило();
+  var рс = рядСветила();
+  var занято = [видEl]
+    .concat([].slice.call(document.querySelectorAll('.угол')))
+    .map(function (el) { return el.getBoundingClientRect(); });
+  var з = заглавиеEl.getBoundingClientRect(), к = стихEl.getBoundingClientRect(), ст = к.width / C, вс = к.height / R;
+  занято.push({ left: з.left, right: з.right + ст, top: з.top, bottom: з.bottom });
+  for (var rr = 0; rr < R; rr++) {                                   // справа от стиха звёзды подходят к рваному краю строк
+    var длина = Math.max(СТИХ[rr].length, (СТИХ[rr - 1] || '').length, (СТИХ[rr + 1] || '').length);
+    занято.push({ left: к.left, right: к.left + (длина + 1.5) * ст, top: к.top + rr * вс, bottom: к.top + (rr + 1) * вс });
+  }
+  for (var r = 0; r < рядыФона; r++)
+    for (var c = 0; c < столбцыФона; c++) {
+      if (!звезда(r + 400, c + 400)) continue;
+      if (r >= рс - 1 && r < рс + 6 && c >= столбцыФона - 18) continue;   // под солнцем и луной звёзд нет
+      var x = c * ш, y = r * в, мимо = занято.every(function (к) {   // со своим полем, чтобы звезда не липла к буквам
+        return x + ш < к.left - 6 || x > к.right + 6 || y + в < к.top - 4 || y > к.bottom + 4;
+      });
+      if (мимо) звёздыФона.push({ r: r, c: c });
+    }
+  отрисоватьФон();
+}
+function отрисоватьФон() {
+  if (лежа) return;
+  var сейчас = performance.now() / 1000, клетки = [];
+  for (var r = 0; r < рядыФона; r++) { клетки.push([]); for (var c = 0; c < столбцыФона; c++) клетки[r].push(' '); }
+  звёздыФона.forEach(function (з) { var м = мерцание(з, сейчас); клетки[з.r][з.c] = м ? '<s>' + м + '</s>' : '.'; });
+  звёздыEl.innerHTML = клетки.map(function (ряд) { return ряд.join(''); }).join('\n');
+}
+['pointerdown', 'pointermove'].forEach(function (т) {                // палец по любому месту экрана
+  document.addEventListener(т, function (e) { if (!лежа) тронутьЗвёзды(e, звёздыEl, звёздыФона, рядыФона, столбцыФона); });
+});
+document.addEventListener('gesturestart', function (e) { e.preventDefault(); });   // Safari на iPhone: щипок не увеличивает
+
+// ---------- вывеска: заглавие горит неоном и мерцает под рукой (мышью или пальцем) ----------
+
+var буквыВывески = [], мерцаетВывеска = false, сбойСам = false, погасить = null;
+(function () {                           // каждая буква — своя трубка
+  var т = заглавиеEl.textContent;
+  заглавиеEl.textContent = '';
+  for (var k = 0; k < т.length; k++) {
+    var b = document.createElement('span');
+    b.textContent = т[k];
+    заглавиеEl.appendChild(b);
+    буквыВывески.push(b);
+  }
+})();
+function замерцать(сама) {
+  if (МЕНЬШЕ_ДВИЖЕНИЯ || мерцаетВывеска && (сама || !сбойСам)) return;   // рука перебивает собственный сбой, а не ждёт его конца
+  clearTimeout(погасить);
+  мерцаетВывеска = true; сбойСам = сама;
+  var живые = буквыВывески.filter(function (b) { return b.textContent !== ' '; });
+  var сломанная = живые[Math.floor(Math.random() * живые.length)];   // каждый раз барахлит другая
+  живые.forEach(function (b) {
+    if (сама && b !== сломанная) return;                        // сама барахлит одна трубка, рука трясёт всю вывеску
+    b.style.animation = 'none';
+    void b.offsetWidth;
+    b.style.animation = b === сломанная ? 'неон-гаснет 2s step-end' : 'неон 1.3s step-end';   // трубка не тускнеет, а щёлкает
+  });
+  погасить = setTimeout(function () { живые.forEach(function (b) { b.style.animation = ''; }); мерцаетВывеска = сбойСам = false; }, 2100);
+}
+заглавиеEl.addEventListener('pointerenter', function () { замерцать(false); });   // мышь навела
+заглавиеEl.addEventListener('pointerdown', function () { замерцать(false); });    // палец коснулся
+(function барахлить() {                  // и изредка, раз в полминуты-минуту, одна буква барахлит сама
+  setTimeout(function () { замерцать(true); барахлить(); }, (25 + Math.random() * 45) * 1000);
+})();
+document.addEventListener('touchend', function (e) { e.preventDefault(); }, { passive: false });   // iPhone: двойной тап нигде не увеличивает и не сдвигает страницу
+
+window.addEventListener('resize', уместить);
+расставить();
+уместить();
+</script>
+</body>
+</html>
