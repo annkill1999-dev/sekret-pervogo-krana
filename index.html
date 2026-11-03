@@ -16,11 +16,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="неоновая вывеска «секрет первого крана» и кран из знаков ночью">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="author" content="анна киладзе, максим дюкин">
 <meta name="theme-color" content="#1b1c22">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1c22'/%3E%3Cg stroke='%23f1ead9' stroke-width='1.6' fill='none' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpath d='M17 2.5v6.5M17 2.5l-6 6.5M3.5 9h25.5M3.5 11h25.5'/%3E%3Cpath d='M15 11v16M19 11v16M15 12l4 3l-4 3l4 3l-4 3l4 3M11.5 28h11'/%3E%3C/g%3E%3Cpath d='M7 11.5v3.5' stroke='%23ff8a3d' stroke-width='1.4' stroke-dasharray='1.4 1.2'/%3E%3Cpath d='M4.8 15.5h4.4v4.4h-4.4zM4.8 15.5l4.4 4.4' fill='none' stroke='%23ff8a3d' stroke-width='1.4'/%3E%3C/svg%3E">
 <style>
   html { margin: 0; height: 100%; overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
   /* ночь */
@@ -106,6 +103,15 @@
                         64% { transform: rotate(-6deg); } 84% { transform: rotate(3deg); } }
   @keyframes крутиться { from { transform: rotate(0); } to { transform: rotate(360deg); } }
   @media (prefers-reduced-motion: reduce) { #светило.качается, #лучи.кругом { animation: none; } }   /* луна не качается, лучи не кружат — правило ниже тех, что качают */
+  #время { position: fixed; top: 5px; right: 30px; z-index: 2; font: 12px/1 Menlo, Consolas, 'DejaVu Sans Mono', 'Noto Sans Mono', monospace; color: var(--тихо); }
+  #время span { display: inline-block; padding: 10px 9px; cursor: pointer; }   /* палец попадает с первого раза */
+  #время span.да { color: var(--стих); }
+  /* времена года — строкой под временем суток */
+  #погода { position: fixed; top: 33px; right: 30px; z-index: 2; font: 12px/1 Menlo, Consolas, 'DejaVu Sans Mono', 'Noto Sans Mono', monospace; color: var(--тихо); }
+  #погода span { display: inline-block; padding: 10px 9px; cursor: pointer; }
+  #погода span.да { color: var(--стих); }
+  #время span:focus, #погода span:focus { outline: none; }
+  #время span:focus-visible, #погода span:focus-visible { outline: 1px dotted var(--тихо); }   /* с клавиатуры видно, где стоишь */
   #стройка s, #небо s { text-decoration: none; color: var(--мерцание); text-shadow: 0 0 8px var(--свет-ярко); }   /* мерцающая звезда */
   #стройка b, #стройка ins, #стройка i, #стройка u, #стройка s, #небо s { pointer-events: none; }   /* касание всегда попадает в саму стройку */
   .угол { position: fixed; color: var(--угол); font: 14px/1 Menlo, Consolas, 'DejaVu Sans Mono', 'Noto Sans Mono', monospace; }
@@ -114,7 +120,14 @@
             color: var(--стих); text-shadow: 0 0 7px var(--свет); }
   #хлопья span { position: absolute; top: 0; left: 0; white-space: pre; will-change: transform, opacity; }
   /* стопкой — только на телефоне; в любом окне пошире стих и краны стоят на одной земле */
-  body.телефон { padding: 40px 0 20px 16px; }                       /* заглавие отступает от строки с погодой; место взято у зазора над кранами */
+  body.телефон { padding: 52px 0 20px 16px; }                       /* заглавие отступает от строки с погодой; место взято у зазора над кранами */
+  body.телефон #погода { top: 5px; left: 22px; right: auto; }      /* на телефоне под временем суток — заглавие, погода слева сверху */
+  body.телефон #погода span, body.телефон #время span { padding: 10px 6px; }
+  @media (max-width: 359px) {                                         /* самые узкие телефоны: погода и время не налезают друг на друга */
+    body.телефон #погода { left: 12px; }
+    body.телефон #время { right: 14px; }
+    body.телефон #погода span, body.телефон #время span { padding: 10px 4px; }
+  }
   body.телефон main { flex-direction: column; align-items: flex-start; }
   body.телефон #небо { display: none; }
   html { touch-action: pan-x pan-y; }                                /* щипком страницу не увеличить */
@@ -131,6 +144,8 @@
 <div class="угол" aria-hidden="true" style="top:16px;right:16px">┐</div>
 <div class="угол" aria-hidden="true" style="bottom:16px;left:16px">└</div>
 <div class="угол" aria-hidden="true" style="bottom:16px;right:16px">┘</div>
+<div id="время" role="group" aria-label="время суток"><span role="button" tabindex="0">день</span>·<span role="button" tabindex="0">ночь</span></div>
+<div id="погода" role="group" aria-label="время года"><span role="button" tabindex="0" data-погода="ясно">лето</span>·<span role="button" tabindex="0" data-погода="дождь">осень</span>·<span role="button" tabindex="0" data-погода="снег">зима</span>·<span role="button" tabindex="0" data-погода="ветер">весна</span></div>
 <div id="хлопья" aria-hidden="true"></div>
 <pre id="светило" aria-hidden="true"></pre>
 <pre id="лучи" aria-hidden="true"></pre>
@@ -140,7 +155,7 @@
 <pre id="заглавие" role="heading" aria-level="1" aria-label="секрет первого крана">секрет первого крана</pre>
 <pre id="стих" aria-hidden="true"></pre>
 <p class="для-чтения">так собирают кран, то есть вот его собирают прямо сейчас, люди буквально заколачивают болты, чтобы кран поднять – все это поднимает другой кран. короче, кран собирает кран, и потом эти краны собирают другие краны, и так рождается семья кранов. первым краном был жираф, я уверен.</p>
-<p class="для-чтения">Под строками нарисован оранжевый жираф: если провести по буквам рукой, они стираются и он проступает, а погода — дождь, снег, ветер — сама срывает буквы. Справа краны из знаков строят друг друга. Время суток и время года — те, что сейчас у читателя.</p>
+<p class="для-чтения">Под строками нарисован оранжевый жираф: если провести по буквам рукой, они стираются и он проступает, а погода — дождь, снег, ветер — сама срывает буквы. Справа краны из знаков строят друг друга. Время суток и время года сначала те, что сейчас у читателя; вверху их можно переключить.</p>
 </div>
 <pre id="стройка" aria-hidden="true"></pre>
 </main>
@@ -609,14 +624,14 @@ function уместить() {
     небоEl.style.minWidth = СТОЛБЦЫ_НЕБА * кегль * знак + 'px';   // и держит его, даже когда рядов неба нет
   } else {                                                        // телефон: стих сверху, под ним полоса кранов
     кегльЛиста = H < 680 ? 13 : H < 760 ? 15 : 16;                 // на маленьком экране мельче, чтобы краны поместились
-    var занято = 40 + 18 * кегльЛиста * 1.3 + 14 + 20;             // отступ, заглавие с пустой строкой и стих, зазор, низ
+    var занято = 52 + 18 * кегльЛиста * 1.3 + 14 + 20;             // отступ, заглавие с пустой строкой и стих, зазор, низ
     кегль = Math.min(12, (W - 16) / (60 * знак), (H - занято) / (19 * 1.3));   // на маленьком экране краны мельче, но целиком
     СТОЛБЦЫ = Math.max(60, Math.floor((W - 16) / (кегль * знак)));
     РЯДЫ = Math.max(19, Math.min(40, Math.floor((H - занято) / (кегль * 1.3))));
     листEl.style.margin = '0 0 14px 0';
   }
   ЗЕМЛЯ = РЯДЫ - 1;
-  ПОТОЛОК = Math.max(2, Math.min(7, Math.floor((РЯДЫ - 11) / 4)));
+  ПОТОЛОК = Math.max(2, Math.min(7, Math.floor((РЯДЫ - (лежа ? 13 : 11)) / 4)));   // на ноутбуке над краном два ряда воздуха — под строкой времён года
   краны.forEach(function (к, i) { к.n = i || переезд ? ПОТОЛОК : Math.min(к.n, ПОТОЛОК - 1); });
   if (полёт && строит !== null) {                                  // висящая секция — заново от крюка к младшему
     var кб = краны[строит], к0 = краны[0];
@@ -636,9 +651,10 @@ function уместить() {
   небоEl.style.fontSize = кегль + 'px';
   прошлыйКадр = '';
   нарисовать();
-  if (лежа) {                                                    // звезда не липнет к уголкам
+  if (лежа) {                                                    // звезда не встаёт в строку времени и времён года, не липнет к уголкам
     var кв = видEl.getBoundingClientRect(), шв = кв.width / СТОЛБЦЫ, вв = кв.height / РЯДЫ;
-    var подписи = [].slice.call(document.querySelectorAll('.угол')).map(function (el) { return el.getBoundingClientRect(); });
+    var подписи = [document.getElementById('время'), document.getElementById('погода')]
+      .concat([].slice.call(document.querySelectorAll('.угол'))).map(function (el) { return el.getBoundingClientRect(); });
     звёзды = звёзды.filter(function (з) {
       var x = кв.left + з.c * шв, y = кв.top + з.r * вв;
       return подписи.every(function (п) { return x + шв < п.left - 4 || x > п.right + 4 || y + вв < п.top - 2 || y > п.bottom + 2; });
@@ -719,6 +735,8 @@ function времяСуток() {
 }
 function сезонСейчас() { return СЕЗОНЫ[new Date().getMonth()]; }
 var ВРЕМЯ = времяСуток();
+var кнопкиВремени = document.querySelectorAll('#время span');
+var самВремя = false, самСезон = false;   // читатель выбрал сам — часы и календарь его больше не перебивают
 var МЕНЬШЕ_ДВИЖЕНИЯ = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);   // читатель просил движения поменьше
 
 function сменить(в) {
@@ -726,6 +744,10 @@ function сменить(в) {
   document.body.classList.toggle('день', в === 'день');
   var цвет = document.querySelector('meta[name="theme-color"]');      // панель браузера — того же времени суток
   if (цвет) цвет.setAttribute('content', в === 'день' ? '#eeeadf' : '#1b1c22');
+  кнопкиВремени[0].classList.toggle('да', в === 'день');
+  кнопкиВремени[1].classList.toggle('да', в === 'ночь');
+  кнопкиВремени[0].setAttribute('aria-pressed', в === 'день');
+  кнопкиВремени[1].setAttribute('aria-pressed', в === 'ночь');
   уложитьЖирафа(в === 'день');
   ограничить(performance.now() / 1000);                          // у другого жирафа знаки в других клетках
   светилоEl.classList.remove('качается');
@@ -743,19 +765,22 @@ function сменить(в) {
 var восход = null;                       // таймер смены луны и солнца
 сменить(ВРЕМЯ);
 requestAnimationFrame(function () { requestAnimationFrame(function () { document.body.classList.remove('сразу'); }); });
-setInterval(function () {                // страница открыта долго — закат и новый сезон случаются у читателя на глазах
-  if (времяСуток() !== ВРЕМЯ) сменить(времяСуток());
-  if (сезонСейчас() !== погода) переменить(сезонСейчас());
+кнопкиВремени[0].addEventListener('click', function () { самВремя = true; if (ВРЕМЯ !== 'день') сменить('день'); });
+кнопкиВремени[1].addEventListener('click', function () { самВремя = true; if (ВРЕМЯ !== 'ночь') сменить('ночь'); });
+setInterval(function () {                // страница открыта долго — закат и новый сезон случаются у читателя на глазах, пока он не выбрал сам
+  if (!самВремя && времяСуток() !== ВРЕМЯ) сменить(времяСуток());
+  if (!самСезон && сезонСейчас() !== погода) переменить(сезонСейчас());
 }, 30000);
 
 // ---------- погода: ясно, ветер, дождь, снег ----------
 // погода трогает сам стих: буквы сдувает, они падают дождём и снегом; на месте сорванной буквы видно, что под ней.
-// тронешь луну или солнце — погода сдирает лоскут текста там, где под ним жираф: видно, что там что-то нарисовано, — дальше протереть самому
+// выберешь время года или тронешь луну и солнце — погода сдирает лоскут текста там, где под ним жираф: видно, что там что-то нарисовано, — дальше протереть самому
 
 var ПОГОДЫ = ['ясно', 'ветер', 'дождь', 'снег'];
 var ЖИРАФА_ПОГОДЕ = 16;                  // сама по себе погода приоткрывает жирафа заметно, но не целиком
 var ЖИРАФА_НАЛЁТУ = 24;                  // лоскут от касания неба: понятно, что там что-то нарисовано, но не что
 var погода = сезонСейчас();
+var кнопкиПогоды = document.querySelectorAll('#погода span');
 var хлопьяEl = document.getElementById('хлопья'), хлопья = [], очередь = [];
 var порыв = null, доПорыва = 1, ветер = 0, копить = 0;
 
@@ -923,10 +948,27 @@ function развеять() { хлопья.forEach(function (х) { хлопьяE
 
 function переменить(п) {
   погода = п;
+  кнопкиПогоды.forEach(function (b) {
+    var да = b.getAttribute('data-погода') === п;
+    b.classList.toggle('да', да);
+    b.setAttribute('aria-pressed', да);
+  });
   for (var i = 0; i < N; i++) сдвиг(i, 0, 0);
   порыв = null; доПорыва = .5; копить = 0;
 }
 переменить(погода);
+кнопкиПогоды.forEach(function (b) {
+  b.addEventListener('click', function () {   // выбрал время года — и его погода сдирает лоскут: под текстом что-то есть
+    самСезон = true;
+    переменить(b.getAttribute('data-погода'));   // подписаны временами года, внутри — погода
+    if (погода === 'ветер') порыв = { t: 0, длина: 1.8, сила: 1 };
+    последнийНалёт = performance.now() / 1000;   // луна следом не сдерёт второй
+    налёт(последнийНалёт);
+  });
+});
+[].forEach.call(document.querySelectorAll('#время span, #погода span'), function (b) {   // с клавиатуры — Enter или пробел
+  b.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); b.click(); } });
+});
 
 // ---------- телефон: звёзды по всему экрану, экран не приближается ----------
 // там, где нет ни стиха, ни кранов, ни подписей, — то же небо, что над кранами; под пальцем звёзды мерцают
@@ -949,11 +991,12 @@ function звёздыПоЭкрану(кегль) {
   отрисоватьФон();                                                    // сетка нужна, чтобы поставить по ней светило
   поставитьСветило();
   var рс = рядСветила();
-  var занято = [видEl]
+  var занято = [видEl, document.getElementById('время'), document.getElementById('погода')]
     .concat([].slice.call(document.querySelectorAll('.угол')))
     .map(function (el) { return el.getBoundingClientRect(); });
   var з = заглавиеEl.getBoundingClientRect(), к = стихEl.getBoundingClientRect(), ст = к.width / C, вс = к.height / R;
   занято.push({ left: з.left, right: з.right + ст, top: з.top, bottom: з.bottom });
+  занято.push({ left: 0, right: W, top: 0, bottom: 44 });           // полоса с погодой и временем суток
   for (var rr = 0; rr < R; rr++) {                                   // справа от стиха звёзды подходят к рваному краю строк
     var длина = Math.max(СТИХ[rr].length, (СТИХ[rr - 1] || '').length, (СТИХ[rr + 1] || '').length);
     занято.push({ left: к.left, right: к.left + (длина + 1.5) * ст, top: к.top + rr * вс, bottom: к.top + (rr + 1) * вс });
@@ -1013,7 +1056,12 @@ function замерцать(сама) {
 (function барахлить() {                  // и изредка, раз в полминуты-минуту, одна буква барахлит сама
   setTimeout(function () { замерцать(true); барахлить(); }, (25 + Math.random() * 45) * 1000);
 })();
-document.addEventListener('touchend', function (e) { e.preventDefault(); }, { passive: false });   // iPhone: двойной тап нигде не увеличивает и не сдвигает страницу
+document.addEventListener('touchend', function (e) {   // iPhone: двойной тап нигде не увеличивает и не сдвигает страницу
+  e.preventDefault();
+  var т = e.changedTouches[0], b = т && e.target.closest && e.target.closest('#время span, #погода span');
+  var где = b && document.elementFromPoint(т.clientX, т.clientY);
+  if (b && где && b.contains(где)) b.click();   // клика после preventDefault не будет — переключатель жмём сами, если палец отпустили на нём
+}, { passive: false });
 
 window.addEventListener('resize', уместить);
 расставить();
